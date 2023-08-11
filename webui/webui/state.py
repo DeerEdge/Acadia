@@ -3,7 +3,7 @@ import os
 import openai
 import reflex as rx
 
-openai.api_key = "INSERT KEY"
+openai.api_key = "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"
 openai.api_base = os.getenv("OPENAI_API_BASE","https://api.openai.com/v1")
 
 
@@ -101,6 +101,8 @@ class State(rx.State):
         # Set the processing flag to true and yield.
         self.processing = True
         yield
+
+        print(self.question)
 
         # Start a new session to answer the question.
         session = openai.ChatCompletion.create(
